@@ -35,7 +35,7 @@ jobs:
       - name: Android projesini oluştur
         run: npx cap add android
 
-      - name: Android ile senkronize et
+      - name: Android ile senkronize e
         run: npx cap sync android
 
       - name: APK oluştur
