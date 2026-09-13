@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html,
@@ -7,74 +8,50 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100%;
-
   background: #080b16;
   color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+body {
+  overflow-x: hidden;
 }
 
 button {
   font: inherit;
   color: inherit;
   border: 0;
+  cursor: pointer;
 }
 
 .splash {
   min-height: 100vh;
-
   display: flex;
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
-
   text-align: center;
-
   background:
-    radial-gradient(
-      circle,
-      #252d65 0%,
-      #0b1020 45%,
-      #080b16 80%
-    );
+    radial-gradient(circle, #252d65 0%, #0b1020 45%, #080b16 80%);
 }
 
 .logo {
   width: 100px;
   height: 100px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 30px;
-
   font-size: 50px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #7165ff,
-      #416fff
-    );
-
-  box-shadow:
-    0 20px 70px
-    rgba(80, 80, 255, .4);
-
+  background: linear-gradient(145deg, #7165ff, #416fff);
+  box-shadow: 0 20px 70px rgba(80, 80, 255, .4);
   animation: logoIn 1s ease;
 }
 
 .splash h1 {
   margin-top: 25px;
-
   font-size: 35px;
   line-height: .95;
-
   letter-spacing: 2px;
 }
 
@@ -85,170 +62,116 @@ button {
 .loader {
   width: 130px;
   height: 4px;
-
   margin-top: 30px;
-
   overflow: hidden;
-
   border-radius: 20px;
-
   background: #252b43;
 }
 
 .loader span {
   display: block;
-
   width: 50%;
   height: 100%;
-
   background: #766cff;
-
-  animation:
-    loading 1.5s infinite;
+  animation: loading 1.5s infinite;
 }
-
 
 .home {
   max-width: 700px;
-
+  min-height: 100vh;
   margin: auto;
-
-  padding:
-    25px
-    18px
-    100px;
+  padding: 25px 18px 110px;
 }
-
 
 header {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
 }
 
 header small {
   color: #7f89aa;
-
   font-weight: bold;
-
   letter-spacing: 2px;
 }
 
 header h1 {
   margin: 5px 0;
-
   font-size: 23px;
 }
 
 .profile {
   width: 45px;
   height: 45px;
-
   border-radius: 15px;
-
   background: #171c30;
-
   font-size: 20px;
 }
 
-
 .hero {
   margin-top: 25px;
-
   padding: 25px;
-
   display: flex;
-
   justify-content: space-between;
-
   border-radius: 25px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #5d53dd,
-      #355dce
-    );
+  background: linear-gradient(135deg, #5d53dd, #355dce);
 }
 
 .hero span {
   font-size: 10px;
-
   font-weight: bold;
-
   letter-spacing: 1px;
 }
 
 .hero h2 {
   font-size: 28px;
-
   line-height: 1;
-
   margin: 12px 0;
 }
 
 .hero p {
   max-width: 280px;
-
   color: #dce0ff;
-
   font-size: 13px;
 }
 
 .trophy {
   font-size: 60px;
-
   display: flex;
-
   align-items: center;
 }
-
 
 .title {
   margin-top: 30px;
-
   font-size: 21px;
 }
 
-
 .game {
   width: 100%;
-
   margin-top: 12px;
-
   padding: 15px;
-
   display: flex;
-
   align-items: center;
-
   gap: 15px;
-
   text-align: left;
-
   border-radius: 20px;
-
   background: #12172a;
-
   border: 1px solid #222945;
+}
+
+.game:active {
+  transform: scale(.98);
 }
 
 .game-icon {
   width: 55px;
   height: 55px;
-
   flex-shrink: 0;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   border-radius: 17px;
-
   background: #1e2541;
-
   font-size: 28px;
 }
 
@@ -258,29 +181,23 @@ header h1 {
 
 .game h3 {
   margin: 0 0 5px;
-
   font-size: 16px;
 }
 
 .game p {
   margin: 0 0 7px;
-
   color: #8992ae;
-
   font-size: 12px;
 }
 
 .game small {
   color: #786eff;
-
   font-size: 10px;
-
   font-weight: bold;
 }
 
 .game strong {
   font-size: 28px;
-
   color: #68718e;
 }
 
@@ -288,44 +205,29 @@ header h1 {
   opacity: .45;
 }
 
-
 nav {
   position: fixed;
-
   left: 50%;
   bottom: 12px;
-
   transform: translateX(-50%);
-
   width: 92%;
   max-width: 500px;
-
   display: flex;
-
   justify-content: space-around;
-
   padding: 10px;
-
   border-radius: 22px;
-
   background: rgba(15, 19, 36, .95);
-
   border: 1px solid #252b45;
+  z-index: 10;
 }
 
 nav button {
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   gap: 3px;
-
   background: none;
-
   color: #707994;
-
   font-size: 18px;
 }
 
@@ -333,9 +235,297 @@ nav small {
   font-size: 9px;
 }
 
+.drawing-page {
+  min-height: 100vh;
+  padding: 18px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.back {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: #171c30;
+  font-size: 32px;
+  line-height: 1;
+}
+
+.round-title {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.round-title small {
+  color: #7f89aa;
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.round-title strong {
+  margin-top: 3px;
+  font-size: 16px;
+}
+
+.timer {
+  min-width: 70px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 13px;
+  background: #1c2340;
+  color: #8e83ff;
+  font-weight: bold;
+}
+
+.timer.danger {
+  background: #49202b;
+  color: #ff7188;
+}
+
+.mission {
+  position: relative;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #29275d, #202d5d);
+  overflow: hidden;
+}
+
+.mission small {
+  color: #9da5ca;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.mission h1 {
+  margin: 8px 0 0;
+  font-size: 25px;
+}
+
+.mission span {
+  position: absolute;
+  right: 20px;
+  top: 17px;
+  font-size: 45px;
+}
+
+.draw-card {
+  margin-top: 16px;
+  padding: 8px;
+  border-radius: 22px;
+  background: #151a2d;
+  border: 1px solid #2a3049;
+}
+
+#drawCanvas {
+  display: block;
+  width: 100%;
+  height: 330px;
+  border-radius: 16px;
+  background: #0e1220;
+  touch-action: none;
+}
+
+.draw-tools {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.draw-tools button {
+  min-height: 50px;
+  padding: 0 18px;
+  border-radius: 16px;
+  background: #1a2035;
+  font-weight: bold;
+}
+
+.draw-tools .finish {
+  flex: 1;
+  background: linear-gradient(135deg, #6c60ed, #416fff);
+}
+
+.players {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px;
+  border-radius: 15px;
+  background: #12172a;
+  border: 1px solid #222945;
+}
+
+.player > span {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: #202641;
+  font-size: 18px;
+}
+
+.player div {
+  display: flex;
+  flex-direction: column;
+}
+
+.player strong {
+  font-size: 12px;
+}
+
+.player small {
+  margin-top: 3px;
+  color: #69728d;
+  font-size: 9px;
+}
+
+.player.me {
+  border-color: #655ce0;
+}
+
+.results {
+  min-height: 100vh;
+  max-width: 600px;
+  margin: auto;
+  padding: 40px 18px;
+  text-align: center;
+}
+
+.result-icon {
+  font-size: 65px;
+  margin-bottom: 10px;
+}
+
+.results > small {
+  color: #8d83ff;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.results h1 {
+  margin: 10px 0;
+  font-size: 25px;
+}
+
+.results > p {
+  color: #858da8;
+}
+
+.my-drawing {
+  margin: 25px 0 18px;
+  padding: 10px;
+  border-radius: 20px;
+  background: #12172a;
+  border: 1px solid #252b45;
+}
+
+.my-drawing div {
+  text-align: left;
+  padding: 5px 8px 10px;
+}
+
+.my-drawing small {
+  color: #7f89aa;
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.my-drawing img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #0e1220;
+}
+
+.score-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.score {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 16px;
+  background: #12172a;
+  border: 1px solid #222945;
+  text-align: left;
+}
+
+.rank {
+  width: 25px;
+  text-align: center;
+  color: #777f99;
+  font-weight: bold;
+}
+
+.score > span {
+  font-size: 22px;
+}
+
+.score-name {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.score-name strong {
+  font-size: 13px;
+}
+
+.score-name small {
+  margin-top: 3px;
+  color: #69728d;
+  font-size: 9px;
+}
+
+.score b {
+  font-size: 17px;
+  color: #9c93ff;
+}
+
+.primary-button,
+.secondary-button {
+  width: 100%;
+  min-height: 52px;
+  margin-top: 12px;
+  border-radius: 17px;
+  font-weight: bold;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #6c60ed, #416fff);
+}
+
+.secondary-button {
+  background: #171c30;
+  color: #9ba3bb;
+}
 
 @keyframes logoIn {
-
   from {
     transform: scale(.4);
     opacity: 0;
@@ -345,12 +535,9 @@ nav small {
     transform: scale(1);
     opacity: 1;
   }
-
 }
 
-
 @keyframes loading {
-
   from {
     transform: translateX(-130px);
   }
@@ -358,5 +545,4 @@ nav small {
   to {
     transform: translateX(280px);
   }
-
 }
