@@ -2,251 +2,303 @@ import "./style.css";
 
 const app = document.getElementById("app");
 
-const baseTasks = [
-  { text: "DOMATES ÇİZ", emoji: "🍅" },
-  { text: "KEDİ ÇİZ", emoji: "🐱" },
-  { text: "EV ÇİZ", emoji: "🏠" },
-  { text: "AĞAÇ ÇİZ", emoji: "🌳" },
-  { text: "GÜNEŞ ÇİZ", emoji: "☀️" },
-  { text: "ARABA ÇİZ", emoji: "🚗" },
-  { text: "KÖPEK ÇİZ", emoji: "🐶" },
-  { text: "ÇİÇEK ÇİZ", emoji: "🌸" },
-  { text: "ELMA ÇİZ", emoji: "🍎" },
-  { text: "PİZZA ÇİZ", emoji: "🍕" },
-  { text: "DONDURMA ÇİZ", emoji: "🍦" },
-  { text: "UÇAK ÇİZ", emoji: "✈️" },
-  { text: "GEMİ ÇİZ", emoji: "🚢" },
-  { text: "ROKET ÇİZ", emoji: "🚀" },
-  { text: "KAMYON ÇİZ", emoji: "🚚" },
-  { text: "BİSİKLET ÇİZ", emoji: "🚲" },
-  { text: "AĞIZ ÇİZ", emoji: "👄" },
-  { text: "GÖZ ÇİZ", emoji: "👁️" },
-  { text: "KALP ÇİZ", emoji: "❤️" },
-  { text: "YILDIZ ÇİZ", emoji: "⭐" },
-  { text: "AY ÇİZ", emoji: "🌙" },
-  { text: "BULUT ÇİZ", emoji: "☁️" },
-  { text: "YAĞMUR ÇİZ", emoji: "🌧️" },
-  { text: "GÖKKUŞAĞI ÇİZ", emoji: "🌈" },
-  { text: "KAR TANESİ ÇİZ", emoji: "❄️" },
-  { text: "KORSAN ÇİZ", emoji: "🏴‍☠️" },
-  { text: "ROBOT ÇİZ", emoji: "🤖" },
-  { text: "CANAVAR ÇİZ", emoji: "👾" },
-  { text: "UZAYLI ÇİZ", emoji: "👽" },
-  { text: "PRENSES ÇİZ", emoji: "👸" },
-  { text: "KRAL ÇİZ", emoji: "🤴" },
-  { text: "SÜPER KAHRAMAN ÇİZ", emoji: "🦸" },
-  { text: "DİNOZOR ÇİZ", emoji: "🦖" },
-  { text: "FİL ÇİZ", emoji: "🐘" },
-  { text: "ASLAN ÇİZ", emoji: "🦁" },
-  { text: "MAYMUN ÇİZ", emoji: "🐒" },
-  { text: "BALIK ÇİZ", emoji: "🐟" },
-  { text: "KÖPEKBALIĞI ÇİZ", emoji: "🦈" },
-  { text: "KELEBEK ÇİZ", emoji: "🦋" },
-  { text: "ARİ ÇİZ", emoji: "🐝" },
-  { text: "KAPLUMBAĞA ÇİZ", emoji: "🐢" },
-  { text: "YILAN ÇİZ", emoji: "🐍" },
-  { text: "ÖRDEK ÇİZ", emoji: "🦆" },
-  { text: "TAVŞAN ÇİZ", emoji: "🐰" },
-  { text: "PENGUEN ÇİZ", emoji: "🐧" },
-  { text: "FUTBOL TOPU ÇİZ", emoji: "⚽" },
-  { text: "BASKETBOL TOPU ÇİZ", emoji: "🏀" },
-  { text: "GİTAR ÇİZ", emoji: "🎸" },
-  { text: "DAVUL ÇİZ", emoji: "🥁" },
-  { text: "PİYANO ÇİZ", emoji: "🎹" },
-  { text: "TELEVİZYON ÇİZ", emoji: "📺" },
-  { text: "TELEFON ÇİZ", emoji: "📱" },
-  { text: "BİLGİSAYAR ÇİZ", emoji: "💻" },
-  { text: "SAAT ÇİZ", emoji: "⏰" },
-  { text: "GÖZLÜK ÇİZ", emoji: "👓" },
-  { text: "ŞAPKA ÇİZ", emoji: "🎩" },
-  { text: "ÇANTA ÇİZ", emoji: "👜" },
-  { text: "ANAHTAR ÇİZ", emoji: "🔑" },
-  { text: "KİTAP ÇİZ", emoji: "📖" },
-  { text: "KALEM ÇİZ", emoji: "✏️" },
-  { text: "KAMERA ÇİZ", emoji: "📷" },
-  { text: "FENER ÇİZ", emoji: "🔦" },
-  { text: "TAÇ ÇİZ", emoji: "👑" },
-  { text: "KUM SAATİ ÇİZ", emoji: "⌛" },
-  { text: "HEDİYE KUTUSU ÇİZ", emoji: "🎁" },
-  { text: "BALON ÇİZ", emoji: "🎈" },
-  { text: "PASTA ÇİZ", emoji: "🎂" },
-  { text: "KAHVE ÇİZ", emoji: "☕" },
-  { text: "HAMBURGER ÇİZ", emoji: "🍔" },
-  { text: "PATATES ÇİZ", emoji: "🍟" },
-  { text: "MUZ ÇİZ", emoji: "🍌" },
-  { text: "KARPUZ ÇİZ", emoji: "🍉" },
-  { text: "ÇİLEK ÇİZ", emoji: "🍓" },
-  { text: "MANTAR ÇİZ", emoji: "🍄" },
-  { text: "AĞAÇ EVİ ÇİZ", emoji: "🏡" },
-  { text: "KALE ÇİZ", emoji: "🏰" },
-  { text: "DENİZ FENERİ ÇİZ", emoji: "🗼" },
-  { text: "KÖPRÜ ÇİZ", emoji: "🌉" },
-  { text: "DAĞ ÇİZ", emoji: "⛰️" },
-  { text: "VOLKAN ÇİZ", emoji: "🌋" },
-  { text: "ADA ÇİZ", emoji: "🏝️" },
-  { text: "ÇÖL ÇİZ", emoji: "🏜️" },
-  { text: "KAMP ÇADIRI ÇİZ", emoji: "⛺" }
+const TOTAL_DRAWINGS_PER_PLAYER = 4;
+const DRAW_TIME = 60;
+
+/*
+  Maksimum 4 oyuncu.
+  Numara oyun boyunca değişmez.
+*/
+let players = [
+  {
+    id: 1,
+    name: "KralBaba",
+    emoji: "👤",
+    score: 0,
+    active: true,
+    drawings: 0
+  },
+  {
+    id: 2,
+    name: "Ali",
+    emoji: "🤖",
+    score: 0,
+    active: true,
+    drawings: 0
+  },
+  {
+    id: 3,
+    name: "Ece",
+    emoji: "🤖",
+    score: 0,
+    active: true,
+    drawings: 0
+  },
+  {
+    id: 4,
+    name: "Mert",
+    emoji: "🤖",
+    score: 0,
+    active: true,
+    drawings: 0
+  }
 ];
 
 /*
- * Büyük görev havuzu.
- *
- * Burada aynı görevlerin kopyalanması yerine farklı görevleri
- * otomatik olarak oluşturuyoruz.
- *
- * 80+ temel görev x farklı ek tanımlar = 1000+ görev.
- */
+  Çok sayıda görev üretmek için temel görevler.
+  Buradan kombinasyonlarla 10.000+ görev üretilebilir.
+*/
+const baseTasks = [
+  ["KEDİ", "🐱"],
+  ["KÖPEK", "🐶"],
+  ["EV", "🏠"],
+  ["AĞAÇ", "🌳"],
+  ["GÜNEŞ", "☀️"],
+  ["AY", "🌙"],
+  ["ARABA", "🚗"],
+  ["UÇAK", "✈️"],
+  ["GEMİ", "🚢"],
+  ["BALIK", "🐟"],
+  ["KUŞ", "🐦"],
+  ["ÇİÇEK", "🌸"],
+  ["ELMA", "🍎"],
+  ["MUZ", "🍌"],
+  ["KARPUZ", "🍉"],
+  ["PİZZA", "🍕"],
+  ["HAMBURGER", "🍔"],
+  ["DONDURMA", "🍦"],
+  ["PASTA", "🎂"],
+  ["KAHVE", "☕"],
+  ["KİTAP", "📖"],
+  ["TELEFON", "📱"],
+  ["BİLGİSAYAR", "💻"],
+  ["SAAT", "⌚"],
+  ["GÖZLÜK", "👓"],
+  ["ŞAPKA", "🎩"],
+  ["TOP", "⚽"],
+  ["GİTAR", "🎸"],
+  ["DAVUL", "🥁"],
+  ["TAÇ", "👑"],
+  ["KILIÇ", "⚔️"],
+  ["ROKET", "🚀"],
+  ["KARDAN ADAM", "⛄"],
+  ["KAR", "❄️"],
+  ["YAĞMUR", "🌧️"],
+  ["BULUT", "☁️"],
+  ["GÖKKUŞAĞI", "🌈"],
+  ["YILDIRIM", "⚡"],
+  ["VOLKAN", "🌋"],
+  ["DAĞ", "⛰️"],
+  ["DENİZ", "🌊"],
+  ["ADA", "🏝️"],
+  ["KÖPRÜ", "🌉"],
+  ["KALE", "🏰"],
+  ["KULE", "🗼"],
+  ["FENER", "🏮"],
+  ["BALON", "🎈"],
+  ["UÇURTMA", "🪁"],
+  ["ROBOT", "🤖"],
+  ["UZAYLI", "👽"],
+  ["HAYALET", "👻"],
+  ["CANAVAR", "👹"],
+  ["EJDERHA", "🐉"],
+  ["DİNAZOR", "🦖"],
+  ["ASLAN", "🦁"],
+  ["KAPLAN", "🐯"],
+  ["FİL", "🐘"],
+  ["ZÜRAFA", "🦒"],
+  ["MAYMUN", "🐒"],
+  ["TAVŞAN", "🐰"],
+  ["KAPLUMBAĞA", "🐢"],
+  ["YILAN", "🐍"],
+  ["KELEBEK", "🦋"],
+  ["ARI", "🐝"],
+  ["ÖRÜMCEK", "🕷️"],
+  ["KURBAĞA", "🐸"],
+  ["PENGUEN", "🐧"],
+  ["KUTUP AYISI", "🐻‍❄️"],
+  ["PANDA", "🐼"],
+  ["KAMERA", "📷"],
+  ["TELEVİZYON", "📺"],
+  ["LAMBA", "💡"],
+  ["SANDALYE", "🪑"],
+  ["MASA", "🪵"],
+  ["KAPI", "🚪"],
+  ["PENCERE", "🪟"],
+  ["YATAK", "🛏️"],
+  ["SAAT", "⏰"],
+  ["ANAHTAR", "🔑"],
+  ["KİLİT", "🔒"],
+  ["ŞEMSİYE", "☂️"],
+  ["ÇANTA", "👜"],
+  ["AYAKKABI", "👟"],
+  ["BİSİKLET", "🚲"],
+  ["MOTOSİKLET", "🏍️"],
+  ["OTOBÜS", "🚌"],
+  ["TREN", "🚆"],
+  ["HELİKOPTER", "🚁"],
+  ["AMBULANS", "🚑"],
+  ["İTFAİYE", "🚒"],
+  ["POLİS ARABASI", "🚓"]
+];
+
+/*
+  10.000+ görev oluşturuyoruz.
+  Aynı nesnenin farklı durumlarını da görev haline getiriyoruz.
+*/
 const modifiers = [
-  "KÜÇÜK",
   "BÜYÜK",
+  "KÜÇÜK",
   "KOMİK",
-  "TATLI",
-  "KORKUNÇ",
-  "UZAYDA",
-  "DENİZDE",
-  "DAĞDA",
-  "GECE",
-  "GÜNDÜZ",
+  "MİNİK",
+  "DEV",
+  "HIZLI",
+  "YAVAŞ",
+  "UYUYAN",
+  "KOŞAN",
+  "ZIPLAYAN",
+  "UÇAN",
+  "YÜZEN",
+  "GÜLEN",
+  "AĞLAYAN",
+  "KORKAN",
+  "ŞAŞIRAN",
+  "KIZGIN",
+  "MUTLU",
+  "ÜZGÜN",
+  "KAYBOLMUŞ",
+  "KIRIK",
+  "ESKİ",
+  "YENİ",
+  "FUTBOL OYNAYAN",
+  "DANS EDEN",
+  "ŞAPKA TAKAN",
+  "GÖZLÜK TAKAN",
   "YAĞMURDA",
   "KARDA",
-  "UÇAN",
-  "KOŞAN",
-  "ZıPLAYAN"
+  "UZAYDA"
 ];
 
 function createTaskPool() {
-  const pool = [...baseTasks];
+  const pool = [];
 
-  baseTasks.forEach((task) => {
-    modifiers.forEach((modifier) => {
-      pool.push({
-        text: `${modifier} ${task.text}`,
-        emoji: task.emoji
-      });
+  for (const [name, emoji] of baseTasks) {
+    pool.push({
+      text: `${name} ÇİZ`,
+      answer: name,
+      emoji
     });
-  });
+
+    for (const modifier of modifiers) {
+      pool.push({
+        text: `${modifier} ${name} ÇİZ`,
+        answer: `${modifier} ${name}`,
+        emoji
+      });
+    }
+  }
+
+  /*
+    Havuzu büyütmek için kombinasyonlar.
+  */
+  for (const [name, emoji] of baseTasks) {
+    for (let i = 0; i < modifiers.length; i++) {
+      for (let j = i + 1; j < modifiers.length; j++) {
+        pool.push({
+          text: `${modifiers[i]} ${modifiers[j]} ${name} ÇİZ`,
+          answer: `${modifiers[i]} ${modifiers[j]} ${name}`,
+          emoji
+        });
+      }
+    }
+  }
 
   return pool;
 }
 
 const taskPool = createTaskPool();
 
-let timer;
-let seconds = 60;
-let drawing = false;
-let canvas;
-let ctx;
-
-let currentRound = 0;
-const TOTAL_ROUNDS = 15;
-
 let usedTasks = [];
-let roundResults = [];
 
-const players = [
-  { name: "Sen", emoji: "👤" },
-  { name: "Bot Ali", emoji: "🤖" },
-  { name: "Bot Ece", emoji: "🤖" },
-  { name: "Bot Mert", emoji: "🤖" }
-];
+let currentDrawerIndex = 0;
+let totalDrawings = 0;
+let currentTask = null;
+
+let timer = null;
+let seconds = DRAW_TIME;
+
+let canvas = null;
+let ctx = null;
+let drawing = false;
+
+let currentGuesses = [];
+let currentCorrectPlayers = [];
+let currentChat = [];
+
+let currentDrawingData = null;
+
+function getActivePlayers() {
+  return players.filter(player => player.active);
+}
+
+function getNextActivePlayer(startIndex) {
+  if (getActivePlayers().length === 0) return null;
+
+  let index = startIndex;
+
+  for (let i = 0; i < players.length; i++) {
+    const player = players[index];
+
+    if (
+      player &&
+      player.active &&
+      player.drawings < TOTAL_DRAWINGS_PER_PLAYER
+    ) {
+      return player;
+    }
+
+    index = (index + 1) % players.length;
+  }
+
+  return null;
+}
+
+function getCurrentDrawer() {
+  return players[currentDrawerIndex];
+}
 
 function randomTask() {
   const available = taskPool.filter(
-    (task) => !usedTasks.some((used) => used.text === task.text)
+    task => !usedTasks.includes(task)
   );
 
-  const list = available.length ? available : taskPool;
+  if (available.length === 0) {
+    usedTasks = [];
+    return taskPool[
+      Math.floor(Math.random() * taskPool.length)
+    ];
+  }
 
-  const task = list[Math.floor(Math.random() * list.length)];
+  const task =
+    available[Math.floor(Math.random() * available.length)];
 
   usedTasks.push(task);
 
   return task;
 }
 
-function randomScore() {
-  return Math.floor(Math.random() * 41) + 55;
-}
-
-/*
- * Botların çizimini basit SVG olarak oluşturuyoruz.
- *
- * Böylece kazanan bot olduğunda sonuç ekranında
- * gerçekten o botun "çizimi" gösterilebiliyor.
- */
-function createBotDrawing(task, botIndex) {
-  const variations = [
-    {
-      shape: `
-        <circle cx="200" cy="125" r="75"/>
-        <circle cx="170" cy="105" r="8"/>
-        <circle cx="230" cy="105" r="8"/>
-        <path d="M165 150 Q200 180 235 150"/>
-      `
-    },
-    {
-      shape: `
-        <rect x="115" y="70" width="170" height="130" rx="25"/>
-        <circle cx="165" cy="125" r="12"/>
-        <circle cx="235" cy="125" r="12"/>
-        <path d="M160 165 Q200 185 240 165"/>
-      `
-    },
-    {
-      shape: `
-        <polygon points="200,35 235,105 315,115 255,165 270,245 200,205 130,245 145,165 85,115 165,105"/>
-      `
-    },
-    {
-      shape: `
-        <circle cx="200" cy="140" r="85"/>
-        <circle cx="165" cy="120" r="10"/>
-        <circle cx="235" cy="120" r="10"/>
-        <path d="M155 165 Q200 205 245 165"/>
-        <path d="M200 55 L200 20"/>
-      `
-    }
-  ];
-
-  const variation = variations[botIndex % variations.length];
-
-  const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg"
-         width="400"
-         height="250"
-         viewBox="0 0 400 250">
-      <rect width="400" height="250" rx="20" fill="#0e1220"/>
-      <g
-        fill="none"
-        stroke="#ffffff"
-        stroke-width="7"
-        stroke-linecap="round"
-        stroke-linejoin="round">
-        ${variation.shape}
-      </g>
-
-      <text
-        x="200"
-        y="225"
-        text-anchor="middle"
-        fill="#777f99"
-        font-size="13"
-        font-family="Arial">
-        ${task.emoji}
-      </text>
-    </svg>
-  `;
-
-  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
-}
-
 function showSplash() {
   app.innerHTML = `
     <main class="splash">
       <div class="logo">🎮</div>
+
       <h1>OYUN<br>TOPLULUĞU</h1>
+
       <p>Herkes oynar. Herkes yarışır.</p>
-      <div class="loader"><span></span></div>
+
+      <div class="loader">
+        <span></span>
+      </div>
     </main>
   `;
 
@@ -254,64 +306,103 @@ function showSplash() {
 }
 
 function showHome() {
-  clearInterval(timer);
-
   app.innerHTML = `
     <main class="home">
+
       <header>
         <div>
           <small>MERHABA 👋</small>
           <h1>Oyun Topluluğu</h1>
         </div>
+
         <button class="profile">👤</button>
       </header>
 
       <section class="hero">
         <div>
           <span>OFFLINE MVP</span>
-          <h2>Yarışmaya<br>hazır mısın?</h2>
-          <p>15 turda en yüksek puanı topla ve kazan!</p>
+
+          <h2>
+            Yarışmaya<br>
+            hazır mısın?
+          </h2>
+
+          <p>
+            Çiz, tahmin et ve en yüksek puanı toplamaya çalış.
+          </p>
         </div>
+
         <div class="trophy">🏆</div>
       </section>
 
       <h2 class="title">Oyunlar</h2>
 
       <button class="game" id="drawingGame">
+
         <div class="game-icon">🎨</div>
+
         <div>
-          <h3>Çizim Yarışması</h3>
-          <p>15 farklı çizimde en yüksek toplam puanı al.</p>
-          <small>15 TUR • RASTGELE GÖREVLER</small>
+          <h3>Çizim & Tahmin Yarışması</h3>
+
+          <p>
+            Bir kişi çizer, diğerleri tahmin eder.
+          </p>
+
+          <small>
+            4 OYUNCU • 16 ÇİZİM
+          </small>
         </div>
+
         <strong>›</strong>
       </button>
 
       <button class="game disabled">
+
         <div class="game-icon">🫣</div>
+
         <div>
           <h3>Saklambaç</h3>
+
           <p>Labirentte ebe olmadan kaç!</p>
+
           <small>YAKINDA</small>
         </div>
+
         <strong>›</strong>
       </button>
 
       <button class="game disabled">
+
         <div class="game-icon">⚡</div>
+
         <div>
           <h3>Refleks</h3>
+
           <p>En hızlı tepki veren kazanır.</p>
+
           <small>YAKINDA</small>
         </div>
+
         <strong>›</strong>
       </button>
 
       <nav>
-        <button>🏠<small>Ana Sayfa</small></button>
-        <button>🏆<small>Sıralama</small></button>
-        <button>⚙️<small>Ayarlar</small></button>
+        <button>
+          🏠
+          <small>Ana Sayfa</small>
+        </button>
+
+        <button>
+          🏆
+          <small>Sıralama</small>
+        </button>
+
+        <button>
+          ⚙️
+          <small>Ayarlar</small>
+        </button>
       </nav>
+
     </main>
   `;
 
@@ -323,166 +414,567 @@ function showHome() {
 function startNewGame() {
   clearInterval(timer);
 
-  currentRound = 0;
-  usedTasks = [];
-  roundResults = [];
+  players.forEach(player => {
+    player.score = 0;
+    player.active = true;
+    player.drawings = 0;
+  });
 
-  startDrawingRound();
+  usedTasks = [];
+
+  currentDrawerIndex = 0;
+  totalDrawings = 0;
+
+  currentTask = null;
+
+  currentGuesses = [];
+  currentCorrectPlayers = [];
+  currentChat = [];
+
+  startNextDrawing();
 }
 
-function startDrawingRound() {
+function startNextDrawing() {
   clearInterval(timer);
 
-  currentRound++;
+  const activePlayers = getActivePlayers();
 
-  seconds = 60;
+  /*
+    Bir kişi kaldıysa oyun biter.
+  */
+  if (activePlayers.length <= 1) {
+    showFinalResults(true);
+    return;
+  }
 
-  const task = randomTask();
+  /*
+    Her aktif oyuncu 4 kez çizdiyse oyun biter.
+  */
+  const hasRemainingDrawing = activePlayers.some(
+    player => player.drawings < TOTAL_DRAWINGS_PER_PLAYER
+  );
+
+  if (!hasRemainingDrawing) {
+    showFinalResults(false);
+    return;
+  }
+
+  const drawer = getNextActivePlayer(currentDrawerIndex);
+
+  if (!drawer) {
+    showFinalResults(false);
+    return;
+  }
+
+  currentDrawerIndex = drawer.id - 1;
+
+  currentTask = randomTask();
+
+  currentGuesses = [];
+  currentCorrectPlayers = [];
+  currentChat = [];
+
+  currentDrawingData = null;
+
+  seconds = DRAW_TIME;
+
+  renderDrawingScreen();
+
+  setupCanvas();
+
+  startTimer();
+}
+
+function renderDrawingScreen() {
+  const drawer = getCurrentDrawer();
+  const activePlayers = getActivePlayers();
+
+  const progress =
+    Math.round(
+      (totalDrawings /
+        Math.max(1, activePlayers.length * TOTAL_DRAWINGS_PER_PLAYER)) *
+        100
+    );
+
+  const isDrawer = true;
 
   app.innerHTML = `
     <main class="drawing-page">
 
       <header class="game-header">
-        <button class="back" id="backHome">‹</button>
+
+        <button class="back" id="backHome">
+          ‹
+        </button>
 
         <div class="round-title">
-          <small>ÇİZİM YARIŞMASI</small>
-          <strong>${currentRound}. / ${TOTAL_ROUNDS}. TUR</strong>
+
+          <small>
+            ÇİZİM & TAHMİN
+          </small>
+
+          <strong>
+            ${totalDrawings + 1}. ÇİZİM
+          </strong>
+
         </div>
 
-        <div class="timer" id="timer">01:00</div>
+        <div class="timer" id="timer">
+          01:00
+        </div>
+
       </header>
 
       <div class="round-progress">
-        <div style="width:${(currentRound / TOTAL_ROUNDS) * 100}%"></div>
+        <div style="width:${progress}%"></div>
       </div>
 
       <section class="mission">
-        <small>GÖREV ${currentRound}</small>
-        <h1>${task.text}</h1>
-        <span>${task.emoji}</span>
+
+        <small>
+          ÇİZEN OYUNCU
+        </small>
+
+        <h1>
+          ${drawer.emoji} ${drawer.name}
+        </h1>
+
+        <p style="color:#9da5ca;margin:7px 0 0;font-size:12px;">
+          Görevi sadece çizen oyuncu görüyor.
+        </p>
+
       </section>
 
       <section class="draw-card">
+
         <canvas id="drawCanvas"></canvas>
+
       </section>
 
       <div class="draw-tools">
-        <button id="clearCanvas">🗑️ Temizle</button>
+
+        <button id="clearCanvas">
+          🗑️ Temizle
+        </button>
+
         <button id="finishDrawing" class="finish">
           BİTİRDİM ✓
         </button>
+
       </div>
 
+      <section class="chat-panel">
+
+        <div class="chat-header">
+          💬 Tahminler
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+
+          <div class="system-message">
+            ${drawer.name} çiziyor.
+            Diğer oyuncular tahmin edebilir.
+          </div>
+
+        </div>
+
+        <div class="guess-input-area">
+
+          <input
+            id="guessInput"
+            type="text"
+            placeholder="Tahminini yaz..."
+            autocomplete="off"
+          />
+
+          <button id="sendGuess">
+            Gönder
+          </button>
+
+        </div>
+
+      </section>
+
       <section class="players">
+
         ${players
           .map(
-            (player, index) => `
-              <div class="player ${index === 0 ? "me" : ""}">
-                <span>${player.emoji}</span>
+            player => `
+              <div class="player ${
+                player.active ? "" : "offline"
+              } ${
+                player.id === drawer.id ? "me" : ""
+              }">
+
+                <span>
+                  ${player.emoji}
+                </span>
+
                 <div>
-                  <strong>${player.name}</strong>
-                  <small>${index === 0 ? "Çiziyorsun..." : "Çiziyor..."}</small>
+
+                  <strong>
+                    ${player.id}. ${player.name}
+                  </strong>
+
+                  <small>
+                    ${
+                      player.active
+                        ? player.id === drawer.id
+                          ? "Çiziyor..."
+                          : "Tahmin ediyor..."
+                        : "ÇIKTI"
+                    }
+                  </small>
+
                 </div>
+
               </div>
             `
           )
           .join("")}
+
       </section>
 
     </main>
   `;
 
-  setupCanvas();
+  /*
+    Gerçek oyunda sadece çizen oyuncunun görevi görünür.
+    Buradaki demo/offline yapıda canvas ekranı ortak olduğu için
+    görev metnini ayrıca çizim ekranında göstermek yerine
+    sistem mantığı currentTask üzerinden yürütülüyor.
+  */
 
-  document
-    .getElementById("backHome")
-    .addEventListener("click", () => {
+  const finishButton =
+    document.getElementById("finishDrawing");
+
+  const clearButton =
+    document.getElementById("clearCanvas");
+
+  const backButton =
+    document.getElementById("backHome");
+
+  const sendButton =
+    document.getElementById("sendGuess");
+
+  const guessInput =
+    document.getElementById("guessInput");
+
+  /*
+    Demo olarak aktif çizici kendi ekranında görevi görür.
+  */
+  const mission = document.querySelector(".mission");
+
+  mission.innerHTML = `
+    <small>
+      ${drawer.name} İÇİN GÖREV
+    </small>
+
+    <h1>
+      ${currentTask.emoji}
+      ${currentTask.text}
+    </h1>
+  `;
+
+  clearButton.addEventListener(
+    "click",
+    clearCanvas
+  );
+
+  finishButton.addEventListener(
+    "click",
+    finishDrawing
+  );
+
+  backButton.addEventListener(
+    "click",
+    () => {
       clearInterval(timer);
       showHome();
-    });
+    }
+  );
 
-  document
-    .getElementById("clearCanvas")
-    .addEventListener("click", clearCanvas);
+  sendButton.addEventListener(
+    "click",
+    submitGuess
+  );
 
-  document
-    .getElementById("finishDrawing")
-    .addEventListener("click", finishDrawing);
+  guessInput.addEventListener(
+    "keydown",
+    event => {
+      if (event.key === "Enter") {
+        submitGuess();
+      }
+    }
+  );
+}
+
+function submitGuess() {
+  const drawer = getCurrentDrawer();
+  const input = document.getElementById("guessInput");
+
+  if (!input) return;
+
+  const text = input.value.trim();
+
+  if (!text) return;
+
+  /*
+    Çizen kişi tahmin gönderemez.
+  */
+  if (currentCorrectPlayers.includes(drawer.id)) {
+    input.value = "";
+    return;
+  }
+
+  /*
+    Demo sisteminde tahmin eden kişi,
+    çizici dışındaki ilk uygun aktif oyuncudan alınır.
+  */
+  const guesser = getActivePlayers().find(
+    player =>
+      player.id !== drawer.id &&
+      !currentGuesses.some(
+        guess => guess.playerId === player.id
+      )
+  );
+
+  if (!guesser) {
+    input.value = "";
+    return;
+  }
+
+  const normalizedGuess =
+    text
+      .toLocaleUpperCase("tr-TR")
+      .trim();
+
+  const normalizedAnswer =
+    currentTask.answer
+      .toLocaleUpperCase("tr-TR")
+      .trim();
+
+  const isCorrect =
+    normalizedGuess === normalizedAnswer ||
+    normalizedAnswer.includes(normalizedGuess) ||
+    normalizedGuess.includes(normalizedAnswer);
+
+  /*
+    Yanlış cevap herkese gösterilir.
+  */
+  currentGuesses.push({
+    playerId: guesser.id,
+    text,
+    correct: isCorrect
+  });
+
+  if (isCorrect) {
+    currentCorrectPlayers.push(guesser.id);
+
+    const correctOrder =
+      currentCorrectPlayers.length;
+
+    let points = 0;
+
+    if (correctOrder === 1) points = 10;
+    if (correctOrder === 2) points = 5;
+    if (correctOrder === 3) points = 3;
+
+    guesser.score += points;
+
+    addChatMessage(`
+      🏆 ${guesser.name}
+      doğru cevapladı ve
+      <strong>${points} puan</strong> aldı.
+    `);
+
+    /*
+      DOĞRU CEVAP KESİNLİKLE GÖSTERİLMEZ.
+    */
+  } else {
+    addChatMessage(`
+      <strong>${guesser.name}</strong>:
+      ${escapeHtml(text)}
+    `);
+  }
+
+  input.value = "";
+
+  /*
+    Üç tahminci de bildiyse süreyi bekleme.
+  */
+  const guessers =
+    getActivePlayers().filter(
+      player => player.id !== drawer.id
+    );
+
+  if (
+    currentCorrectPlayers.length ===
+    guessers.length
+  ) {
+    setTimeout(
+      finishDrawing,
+      700
+    );
+  }
+}
+
+function addChatMessage(message) {
+  const chat =
+    document.getElementById("chatMessages");
+
+  if (!chat) return;
+
+  const div =
+    document.createElement("div");
+
+  div.className = "chat-message";
+
+  div.innerHTML = message;
+
+  chat.appendChild(div);
+
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function escapeHtml(text) {
+  return text
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function startTimer() {
+  clearInterval(timer);
 
   timer = setInterval(() => {
     seconds--;
 
-    const min = String(Math.floor(seconds / 60)).padStart(2, "0");
-    const sec = String(seconds % 60).padStart(2, "0");
-
-    const timerElement = document.getElementById("timer");
+    const timerElement =
+      document.getElementById("timer");
 
     if (timerElement) {
-      timerElement.textContent = `${min}:${sec}`;
+      const min = String(
+        Math.floor(seconds / 60)
+      ).padStart(2, "0");
+
+      const sec = String(
+        seconds % 60
+      ).padStart(2, "0");
+
+      timerElement.textContent =
+        `${min}:${sec}`;
 
       if (seconds <= 10) {
-        timerElement.classList.add("danger");
+        timerElement.classList.add(
+          "danger"
+        );
       }
     }
 
     if (seconds <= 0) {
       clearInterval(timer);
+
       finishDrawing();
     }
   }, 1000);
 }
 
 function setupCanvas() {
-  canvas = document.getElementById("drawCanvas");
+  canvas =
+    document.getElementById("drawCanvas");
 
-  const rect = canvas.getBoundingClientRect();
-  const ratio = window.devicePixelRatio || 1;
+  if (!canvas) return;
 
-  canvas.width = rect.width * ratio;
-  canvas.height = rect.height * ratio;
+  const rect =
+    canvas.getBoundingClientRect();
 
-  ctx = canvas.getContext("2d");
+  const ratio =
+    window.devicePixelRatio || 1;
 
-  ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+  canvas.width =
+    rect.width * ratio;
+
+  canvas.height =
+    rect.height * ratio;
+
+  ctx =
+    canvas.getContext("2d");
+
+  ctx.scale(ratio, ratio);
 
   ctx.lineWidth = 5;
   ctx.lineCap = "round";
   ctx.lineJoin = "round";
   ctx.strokeStyle = "#ffffff";
 
-  canvas.addEventListener("pointerdown", startDrawing);
-  canvas.addEventListener("pointermove", draw);
-  canvas.addEventListener("pointerup", stopDrawing);
-  canvas.addEventListener("pointercancel", stopDrawing);
+  canvas.addEventListener(
+    "pointerdown",
+    startDrawing
+  );
+
+  canvas.addEventListener(
+    "pointermove",
+    draw
+  );
+
+  canvas.addEventListener(
+    "pointerup",
+    stopDrawing
+  );
+
+  canvas.addEventListener(
+    "pointercancel",
+    stopDrawing
+  );
 }
 
 function getPosition(event) {
-  const rect = canvas.getBoundingClientRect();
+  const rect =
+    canvas.getBoundingClientRect();
 
   return {
-    x: event.clientX - rect.left,
-    y: event.clientY - rect.top
+    x:
+      event.clientX -
+      rect.left,
+
+    y:
+      event.clientY -
+      rect.top
   };
 }
 
 function startDrawing(event) {
   drawing = true;
 
-  canvas.setPointerCapture(event.pointerId);
+  canvas.setPointerCapture(
+    event.pointerId
+  );
 
-  const pos = getPosition(event);
+  const pos =
+    getPosition(event);
 
   ctx.beginPath();
-  ctx.moveTo(pos.x, pos.y);
+
+  ctx.moveTo(
+    pos.x,
+    pos.y
+  );
 }
 
 function draw(event) {
   if (!drawing) return;
 
-  const pos = getPosition(event);
+  const pos =
+    getPosition(event);
 
-  ctx.lineTo(pos.x, pos.y);
+  ctx.lineTo(
+    pos.x,
+    pos.y
+  );
+
   ctx.stroke();
 }
 
@@ -491,135 +983,152 @@ function stopDrawing() {
 }
 
 function clearCanvas() {
-  const rect = canvas.getBoundingClientRect();
+  if (!canvas || !ctx) return;
 
-  ctx.clearRect(0, 0, rect.width, rect.height);
+  const rect =
+    canvas.getBoundingClientRect();
+
+  ctx.clearRect(
+    0,
+    0,
+    rect.width,
+    rect.height
+  );
 }
 
 function finishDrawing() {
-  if (!canvas) return;
+  if (!currentTask) return;
 
   clearInterval(timer);
 
-  const canvasData = canvas.toDataURL("image/png");
+  const drawer =
+    getCurrentDrawer();
 
-  const bot1Score = randomScore();
-  const bot2Score = randomScore();
-  const bot3Score = randomScore();
+  /*
+    Çizen kişi 12 puan.
+  */
+  drawer.score += 12;
 
-  const botDrawings = [
-    createBotDrawing(
-      usedTasks[usedTasks.length - 1],
-      0
-    ),
-    createBotDrawing(
-      usedTasks[usedTasks.length - 1],
-      1
-    ),
-    createBotDrawing(
-      usedTasks[usedTasks.length - 1],
-      2
-    )
-  ];
+  drawer.drawings += 1;
 
-  const myScore = randomScore();
+  currentDrawingData =
+    canvas
+      ? canvas.toDataURL()
+      : null;
 
-  const round = {
-    task: usedTasks[usedTasks.length - 1],
+  totalDrawings++;
 
-    players: [
-      {
-        name: "Sen",
-        emoji: "👤",
-        score: myScore,
-        drawing: canvasData
-      },
-      {
-        name: "Bot Ali",
-        emoji: "🤖",
-        score: bot1Score,
-        drawing: botDrawings[0]
-      },
-      {
-        name: "Bot Ece",
-        emoji: "🤖",
-        score: bot2Score,
-        drawing: botDrawings[1]
-      },
-      {
-        name: "Bot Mert",
-        emoji: "🤖",
-        score: bot3Score,
-        drawing: botDrawings[2]
-      }
-    ]
-  };
+  /*
+    Eğer çizen oyuncunun hakkı bittiyse
+    onun sırası sonraki turda atlanır.
+  */
 
-  roundResults.push(round);
+  /*
+    Sonraki aktif oyuncuyu bul.
+  */
+  const nextPlayer =
+    getNextActivePlayer(
+      (drawer.id) % players.length
+    );
 
-  if (currentRound < TOTAL_ROUNDS) {
-    showRoundResult(round);
-  } else {
-    showFinalResults();
+  /*
+    Bir kişi kaldıysa oyun biter.
+  */
+  if (
+    getActivePlayers().length === 1
+  ) {
+    showFinalResults(true);
+    return;
   }
+
+  /*
+    Herkes 4 çizimini tamamladıysa final.
+  */
+  const allDone =
+    getActivePlayers().every(
+      player =>
+        player.drawings >=
+        TOTAL_DRAWINGS_PER_PLAYER
+    );
+
+  if (allDone) {
+    showFinalResults(false);
+    return;
+  }
+
+  if (nextPlayer) {
+    currentDrawerIndex =
+      nextPlayer.id - 1;
+  }
+
+  /*
+    Kısa geçiş ekranı.
+  */
+  showRoundTransition(
+    drawer,
+    nextPlayer
+  );
 }
 
-function showRoundResult(round) {
-  const sorted = [...round.players].sort(
-    (a, b) => b.score - a.score
-  );
-
-  const winner = sorted[0];
-
+function showRoundTransition(
+  drawer,
+  nextPlayer
+) {
   app.innerHTML = `
     <main class="round-result">
 
-      <div class="round-result-icon">🏆</div>
-
-      <small>${currentRound}. TUR TAMAMLANDI</small>
-
-      <h1>${winner.emoji} ${winner.name}</h1>
-
-      <p>Bu turu ${winner.score} puanla kazandı.</p>
-
-      <div class="winner-preview">
-        <div class="winner-preview-title">
-          <span>🏆</span>
-          <strong>${winner.name}'in çizimi</strong>
-        </div>
-
-        <img
-          src="${winner.drawing}"
-          alt="${winner.name} çizimi"
-        />
+      <div class="round-result-icon">
+        🎨
       </div>
 
-      <section class="round-scores">
-        ${sorted
-          .map(
-            (player, index) => `
-              <div class="score">
-                <div class="rank">${index + 1}</div>
-                <span>${player.emoji}</span>
+      <small>
+        ÇİZİM TAMAMLANDI
+      </small>
 
-                <div class="score-name">
-                  <strong>${player.name}</strong>
-                  <small>${player.score} puan</small>
-                </div>
+      <h1>
+        ${drawer.name}
+        +12 puan
+      </h1>
 
-                <b>${player.score}</b>
-              </div>
+      <p>
+        Sıradaki oyuncu:
+        <strong>
+          ${nextPlayer?.name || ""}
+        </strong>
+      </p>
+
+      <div class="winner-preview">
+
+        <div class="winner-preview-title">
+
+          <span>
+            ${drawer.emoji}
+          </span>
+
+          <strong>
+            ${drawer.name}'in çizimi
+          </strong>
+
+        </div>
+
+        ${
+          currentDrawingData
+            ? `
+              <img
+                src="${currentDrawingData}"
+                alt="Çizim"
+              />
             `
-          )
-          .join("")}
-      </section>
+            : ""
+        }
 
-      <button class="primary-button" id="nextRound">
-        ${currentRound + 1}. TURA GEÇ →
-      </button>
+      </div>
 
-      <button class="secondary-button" id="quitGame">
-        OYUNDAN ÇIK
+      <button
+        class="primary-button"
+        id="nextRound"
+      >
+        SIRADAKİ OYUNCU →
       </button>
 
     </main>
@@ -627,102 +1136,146 @@ function showRoundResult(round) {
 
   document
     .getElementById("nextRound")
-    .addEventListener("click", startDrawingRound);
-
-  document
-    .getElementById("quitGame")
-    .addEventListener("click", showHome);
+    .addEventListener(
+      "click",
+      startNextDrawing
+    );
 }
 
-function showFinalResults() {
-  const totals = players.map((player) => {
-    const playerRounds = roundResults.flatMap((round) =>
-      round.players.filter(
-        (roundPlayer) => roundPlayer.name === player.name
-      )
-    );
+function showFinalResults(
+  singleWinner = false
+) {
+  clearInterval(timer);
 
-    const totalScore = playerRounds.reduce(
-      (total, round) => total + round.score,
-      0
-    );
-
-    return {
-      name: player.name,
-      emoji: player.emoji,
-      score: totalScore
-    };
-  });
-
-  totals.sort((a, b) => b.score - a.score);
-
-  const winner = totals[0];
+  const activePlayers =
+    getActivePlayers();
 
   /*
-   * Kazananın gösterilecek çizimini bul.
-   *
-   * Kazanan bot ise son turdaki bot çizimi değil,
-   * o oyuncunun oyun boyunca yaptığı en yüksek puanlı
-   * çizimi gösteriyoruz.
-   */
-  const winnerDrawings = [];
+    Bir kişi kaldıysa doğrudan kazanır.
+  */
+  if (
+    singleWinner &&
+    activePlayers.length === 1
+  ) {
+    const winner =
+      activePlayers[0];
 
-  roundResults.forEach((round) => {
-    const player = round.players.find(
-      (p) => p.name === winner.name
-    );
+    app.innerHTML = `
+      <main class="results">
 
-    if (player) {
-      winnerDrawings.push({
-        drawing: player.drawing,
-        score: player.score,
-        task: round.task
-      });
-    }
-  });
+        <div class="result-icon">
+          🏆
+        </div>
 
-  winnerDrawings.sort((a, b) => b.score - a.score);
+        <small>
+          OYUN BİTTİ
+        </small>
 
-  const winningDrawing = winnerDrawings[0];
+        <h1>
+          ${winner.emoji}
+          ${winner.name} KAZANDI!
+        </h1>
+
+        <p>
+          Oyunda kalan son oyuncu.
+        </p>
+
+        <section class="score-list">
+
+          <div class="score champion">
+
+            <div class="rank">
+              🥇
+            </div>
+
+            <span>
+              ${winner.emoji}
+            </span>
+
+            <div class="score-name">
+
+              <strong>
+                ${winner.id}.
+                ${winner.name}
+              </strong>
+
+              <small>
+                🏆 Kazanan
+              </small>
+
+            </div>
+
+            <b>
+              ${winner.score}
+            </b>
+
+          </div>
+
+        </section>
+
+        <button
+          class="primary-button"
+          id="playAgain"
+        >
+          TEKRAR OYNA
+        </button>
+
+        <button
+          class="secondary-button"
+          id="goHome"
+        >
+          ANA SAYFAYA DÖN
+        </button>
+
+      </main>
+    `;
+
+    document
+      .getElementById("playAgain")
+      .addEventListener(
+        "click",
+        startNewGame
+      );
+
+    document
+      .getElementById("goHome")
+      .addEventListener(
+        "click",
+        showHome
+      );
+
+    return;
+  }
+
+  /*
+    Normal final sıralaması.
+    Çıkan oyuncular dahil edilmez.
+  */
+  const ranking =
+    [...activePlayers]
+      .sort(
+        (a, b) =>
+          b.score - a.score
+      );
 
   app.innerHTML = `
     <main class="results">
 
-      <div class="result-icon">🏆</div>
+      <div class="result-icon">
+        🏆
+      </div>
 
-      <small>15 TUR TAMAMLANDI</small>
+      <small>
+        OYUN TAMAMLANDI
+      </small>
 
-      <h1>${winner.emoji} ${winner.name} KAZANDI!</h1>
+      <h1>
+        SONUÇLAR
+      </h1>
 
       <p>
-        ${winner.score} toplam puanla oyunun şampiyonu!
+        ${totalDrawings} çizim tamamlandı.
       </p>
-
-      <div class="winner-final-drawing">
-
-        <div class="winner-final-header">
-          <div>
-            <small>🏆 KAZANANIN ÇİZİMİ</small>
-            <strong>${winner.name}</strong>
-          </div>
-
-          <span>${winningDrawing.task.emoji}</span>
-        </div>
-
-        <div class="winner-image">
-          <img
-            src="${winningDrawing.drawing}"
-            alt="${winner.name} tarafından çizilen ${winningDrawing.task.text}"
-          />
-        </div>
-
-        <div class="winning-task">
-          <span>GÖREV</span>
-          <strong>${winningDrawing.task.text}</strong>
-          <b>${winningDrawing.score} PUAN</b>
-        </div>
-
-      </div>
 
       <h2 class="final-score-title">
         🏆 GENEL SIRALAMA
@@ -730,31 +1283,51 @@ function showFinalResults() {
 
       <section class="score-list">
 
-        ${totals
+        ${ranking
           .map(
             (player, index) => `
               <div class="score ${
-                index === 0 ? "champion" : ""
+                index === 0
+                  ? "champion"
+                  : ""
               }">
 
                 <div class="rank">
-                  ${index === 0 ? "🏆" : index + 1}
+                  ${
+                    index === 0
+                      ? "🥇"
+                      : index === 1
+                      ? "🥈"
+                      : index === 2
+                      ? "🥉"
+                      : "🏅"
+                  }
                 </div>
 
-                <span>${player.emoji}</span>
+                <span>
+                  ${player.emoji}
+                </span>
 
                 <div class="score-name">
-                  <strong>${player.name}</strong>
+
+                  <strong>
+                    ${player.id}.
+                    ${player.name}
+                  </strong>
+
                   <small>
                     ${
                       index === 0
-                        ? "ŞAMPİYON"
-                        : `${index + 1}. sıra`
+                        ? "🏆 Şampiyon"
+                        : `${player.drawings} çizim`
                     }
                   </small>
+
                 </div>
 
-                <b>${player.score}</b>
+                <b>
+                  ${player.score}
+                </b>
 
               </div>
             `
@@ -763,11 +1336,36 @@ function showFinalResults() {
 
       </section>
 
-      <button class="primary-button" id="playAgain">
-        YENİ OYUN 🎨
+      ${
+        players.some(
+          player => !player.active
+        )
+          ? `
+            <p
+              style="
+                margin-top:18px;
+                font-size:11px;
+                color:#69728d;
+              "
+            >
+              Oyundan çıkan oyuncular
+              final sıralamasına dahil edilmedi.
+            </p>
+          `
+          : ""
+      }
+
+      <button
+        class="primary-button"
+        id="playAgain"
+      >
+        TEKRAR OYNA
       </button>
 
-      <button class="secondary-button" id="goHome">
+      <button
+        class="secondary-button"
+        id="goHome"
+      >
         ANA SAYFAYA DÖN
       </button>
 
@@ -776,11 +1374,17 @@ function showFinalResults() {
 
   document
     .getElementById("playAgain")
-    .addEventListener("click", startNewGame);
+    .addEventListener(
+      "click",
+      startNewGame
+    );
 
   document
     .getElementById("goHome")
-    .addEventListener("click", showHome);
+    .addEventListener(
+      "click",
+      showHome
+    );
 }
 
 showSplash();
