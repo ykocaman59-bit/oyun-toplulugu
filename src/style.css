@@ -401,6 +401,107 @@ nav small {
   border-color: #655ce0;
 }
 
+
+/* =========================================
+   15 TUR İLERLEME ÇUBUĞU
+========================================= */
+
+.round-progress {
+  width: 100%;
+  height: 5px;
+  margin-top: 14px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #1b2035;
+}
+
+.round-progress div {
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #6c60ed, #416fff);
+  transition: width .4s ease;
+}
+
+
+/* =========================================
+   TUR SONU EKRANI
+========================================= */
+
+.round-result {
+  min-height: 100vh;
+  max-width: 600px;
+  margin: auto;
+  padding: 45px 18px;
+  text-align: center;
+}
+
+.round-result-icon {
+  font-size: 65px;
+  margin-bottom: 10px;
+}
+
+.round-result > small {
+  color: #8d83ff;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.round-result h1 {
+  margin: 12px 0 5px;
+  font-size: 28px;
+}
+
+.round-result > p {
+  color: #858da8;
+  margin-bottom: 22px;
+}
+
+.winner-preview {
+  padding: 10px;
+  border-radius: 22px;
+  background: #12172a;
+  border: 1px solid #343b5d;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, .2);
+}
+
+.winner-preview-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 8px 12px;
+  text-align: left;
+}
+
+.winner-preview-title span {
+  font-size: 20px;
+}
+
+.winner-preview-title strong {
+  font-size: 13px;
+}
+
+.winner-preview img {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: contain;
+  border-radius: 15px;
+  background: #0e1220;
+}
+
+.round-scores {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+
+/* =========================================
+   FİNAL SONUÇLARI
+========================================= */
+
 .results {
   min-height: 100vh;
   max-width: 600px;
@@ -430,32 +531,101 @@ nav small {
   color: #858da8;
 }
 
-.my-drawing {
-  margin: 25px 0 18px;
-  padding: 10px;
-  border-radius: 20px;
-  background: #12172a;
-  border: 1px solid #252b45;
+
+/* =========================================
+   KAZANANIN ÇİZİMİ
+========================================= */
+
+.winner-final-drawing {
+  margin: 25px 0;
+  padding: 12px;
+  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    #1a1f39,
+    #101526
+  );
+  border: 1px solid #6259db;
+  box-shadow:
+    0 20px 70px rgba(80, 70, 220, .18);
 }
 
-.my-drawing div {
-  text-align: left;
-  padding: 5px 8px 10px;
+.winner-final-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 7px 12px;
 }
 
-.my-drawing small {
-  color: #7f89aa;
+.winner-final-header div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.winner-final-header small {
+  color: #8e83ff;
   font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.winner-final-header strong {
+  margin-top: 4px;
+  font-size: 17px;
+}
+
+.winner-final-header > span {
+  font-size: 32px;
+}
+
+.winner-image {
+  overflow: hidden;
+  border-radius: 17px;
+  background: #0e1220;
+}
+
+.winner-image img {
+  display: block;
+  width: 100%;
+  height: 270px;
+  object-fit: contain;
+}
+
+.winning-task {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 6px 3px;
+  text-align: left;
+}
+
+.winning-task span {
+  color: #69728d;
+  font-size: 8px;
   font-weight: bold;
 }
 
-.my-drawing img {
-  display: block;
-  width: 100%;
-  height: 180px;
-  object-fit: contain;
-  border-radius: 14px;
-  background: #0e1220;
+.winning-task strong {
+  flex: 1;
+  font-size: 11px;
+}
+
+.winning-task b {
+  color: #9c93ff;
+  font-size: 12px;
+}
+
+
+/* =========================================
+   GENEL SIRALAMA
+========================================= */
+
+.final-score-title {
+  margin: 28px 0 12px;
+  text-align: left;
+  font-size: 16px;
+  color: #cbd0e2;
 }
 
 .score-list {
@@ -507,6 +677,70 @@ nav small {
   color: #9c93ff;
 }
 
+.score.champion {
+  border-color: #6259db;
+  background: linear-gradient(
+    135deg,
+    #1c2040,
+    #151a30
+  );
+  box-shadow: 0 8px 30px rgba(80, 70, 220, .12);
+}
+
+.score.champion .rank {
+  font-size: 18px;
+}
+
+.score.champion .score-name strong {
+  color: #ffffff;
+}
+
+.score.champion .score-name small {
+  color: #8e83ff;
+}
+
+.score.champion > b {
+  color: #b0a8ff;
+}
+
+
+/* =========================================
+   ESKİ ÇİZİM ALANI
+========================================= */
+
+.my-drawing {
+  margin: 25px 0 18px;
+  padding: 10px;
+  border-radius: 20px;
+  background: #12172a;
+  border: 1px solid #252b45;
+}
+
+.my-drawing div {
+  text-align: left;
+  padding: 5px 8px 10px;
+}
+
+.my-drawing small {
+  color: #7f89aa;
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.my-drawing img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #0e1220;
+}
+
+
+/* =========================================
+   BUTONLAR
+========================================= */
+
 .primary-button,
 .secondary-button {
   width: 100%;
@@ -524,6 +758,16 @@ nav small {
   background: #171c30;
   color: #9ba3bb;
 }
+
+.primary-button:active,
+.secondary-button:active {
+  transform: scale(.98);
+}
+
+
+/* =========================================
+   ANİMASYONLAR
+========================================= */
 
 @keyframes logoIn {
   from {
@@ -545,4 +789,66 @@ nav small {
   to {
     transform: translateX(280px);
   }
+}
+
+
+/* =========================================
+   MOBİL
+========================================= */
+
+@media (max-width: 480px) {
+
+  .home {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .drawing-page {
+    padding: 14px;
+  }
+
+  .hero {
+    padding: 20px;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  .trophy {
+    font-size: 45px;
+  }
+
+  #drawCanvas {
+    height: 280px;
+  }
+
+  .players {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .winner-image img {
+    height: 220px;
+  }
+
+  .winner-preview img {
+    height: 200px;
+  }
+
+  .winning-task {
+    flex-wrap: wrap;
+  }
+
+  .winning-task strong {
+    min-width: 120px;
+  }
+
+  .round-result {
+    padding-top: 35px;
+  }
+
+  .results {
+    padding-top: 30px;
+  }
+
 }
