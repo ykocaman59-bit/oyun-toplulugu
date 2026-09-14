@@ -878,4 +878,277 @@ nav small { font-size: 9px; }
   .action-buttons { margin-left: auto; }
   .action { width: 58px; height: 58px; }
   .hide-viewport { height: 64vh; }
-    }
+}
+
+/* --- 3D SAKLAMBAÇ HARİTASI + İNSAN KARAKTERLERİ --- */
+.hide-game-shell { background: #151a22; }
+.hide-map {
+  width: 2200px;
+  height: 1350px;
+  background-image: url('./mansion-map.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #1d241f;
+}
+.map-title {
+  left: 34px;
+  top: 28px;
+  z-index: 4;
+  background: rgba(8,12,18,.82);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(8px);
+}
+.map-note {
+  position: absolute;
+  z-index: 4;
+  left: 34px;
+  top: 72px;
+  max-width: 420px;
+  padding: 7px 11px;
+  border-radius: 10px;
+  background: rgba(8,12,18,.66);
+  color: #d9dfec;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .7px;
+}
+/* Furniture hotspots are invisible on the 3D image but remain clickable. */
+.prop {
+  opacity: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.prop span, .prop small { opacity: 0; }
+
+.hide-player {
+  width: 52px;
+  height: 76px;
+  margin-left: -26px;
+  margin-top: -38px;
+  border: 0;
+  background: transparent;
+  box-shadow: 0 8px 18px rgba(0,0,0,.28);
+  overflow: visible;
+  border-radius: 0;
+}
+.hide-player b {
+  position: absolute;
+  top: 76px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 3px 6px;
+  border-radius: 7px;
+  background: rgba(8,12,18,.78);
+  color: #fff;
+  font-size: 8px;
+  font-weight: 800;
+}
+.character-shadow {
+  position: absolute;
+  left: 7px;
+  bottom: 2px;
+  width: 38px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.4);
+  filter: blur(2px);
+}
+.character {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 64px;
+  height: 82px;
+  transform-origin: 50% 100%;
+  animation: characterIdle 1.6s ease-in-out infinite;
+}
+
+.character-head {
+  position: absolute;
+  left: 18px;
+  top: 6px;
+  width: 28px;
+  height: 28px;
+  border-radius: 48% 48% 44% 44%;
+  background: #f2c6a3;
+  border: 2px solid rgba(20,20,30,.75);
+  z-index: 5;
+  box-shadow: inset -4px -3px 0 rgba(0,0,0,.08);
+}
+
+.character-hair {
+  position: absolute;
+  left: 15px;
+  top: 1px;
+  width: 34px;
+  height: 17px;
+  border-radius: 18px 18px 8px 8px;
+  background: #21191d;
+  border: 2px solid rgba(10,10,15,.8);
+  z-index: 7;
+}
+
+.character-hair::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 7px;
+  width: 9px;
+  height: 13px;
+  border-radius: 7px;
+  background: inherit;
+}
+
+.character-head::before,
+.character-head::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #202331;
+}
+
+.character-head::before { left: 6px; }
+.character-head::after { right: 6px; }
+
+.character-face {
+  position: absolute;
+  z-index: 8;
+  left: 27px;
+  top: 19px;
+  width: 10px;
+  height: 4px;
+  border-bottom: 2px solid #8f4e48;
+  border-radius: 0 0 10px 10px;
+}
+
+.character-body {
+  position: absolute;
+  left: 14px;
+  top: 32px;
+  width: 36px;
+  height: 28px;
+  border-radius: 12px 12px 8px 8px;
+  background: #51a7ff;
+  border: 2px solid rgba(20,20,30,.75);
+  z-index: 4;
+  box-shadow: inset -5px -4px 0 rgba(0,0,0,.14);
+}
+
+.character-body::after {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 6px;
+  width: 9px;
+  height: 11px;
+  border-radius: 3px;
+  background: rgba(255,255,255,.18);
+}
+
+.character-arm {
+  position: absolute;
+  top: 34px;
+  width: 10px;
+  height: 25px;
+  border-radius: 8px;
+  background: #51a7ff;
+  border: 2px solid rgba(20,20,30,.7);
+  z-index: 3;
+}
+
+.arm-left { left: 7px; transform: rotate(13deg); }
+.arm-right { right: 7px; transform: rotate(-13deg); }
+
+.character-leg {
+  position: absolute;
+  top: 56px;
+  width: 12px;
+  height: 17px;
+  border-radius: 4px 4px 7px 7px;
+  background: #273149;
+  border: 2px solid rgba(10,12,20,.8);
+  z-index: 2;
+}
+
+.leg-left { left: 18px; }
+.leg-right { right: 18px; }
+
+.character-shoe {
+  position: absolute;
+  top: 69px;
+  width: 17px;
+  height: 7px;
+  border-radius: 7px 7px 4px 4px;
+  background: #121620;
+  z-index: 3;
+}
+
+.shoe-left { left: 13px; }
+.shoe-right { right: 13px; }
+
+.hide-player.p1 .character-body,
+.hide-player.p1 .character-arm { background: #2786f2; }
+.hide-player.p2 .character-body,
+.hide-player.p2 .character-arm { background: #36bf62; }
+.hide-player.p3 .character-body,
+.hide-player.p3 .character-arm { background: #f2b82f; }
+.hide-player.p4 .character-body,
+.hide-player.p4 .character-arm { background: #9d4ee2; }
+
+.hide-player.p1 .character-head { background: #f0c09d; }
+.hide-player.p2 .character-head { background: #8b5b3e; }
+.hide-player.p3 .character-head { background: #f0bf95; }
+.hide-player.p4 .character-head { background: #d69d78; }
+
+.hide-player.frozen .character {
+  filter: grayscale(1);
+  animation: freezePulse .6s infinite alternate;
+}
+
+.hide-player.caught .character {
+  opacity: .18;
+  transform: scale(.7);
+}
+
+@keyframes characterIdle {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-2px) rotate(-1deg); }
+}
+.hide-player.hidden-as-prop {
+  width: 92px;
+  height: 72px;
+  margin-left: -46px;
+  margin-top: -36px;
+  border-radius: 13px;
+  background: rgba(36,25,18,.96);
+  border: 3px solid rgba(255,255,255,.18);
+  box-shadow: 0 8px 20px rgba(0,0,0,.35);
+}
+.hide-player.hidden-as-prop .character,
+.hide-player.hidden-as-prop .character-shadow { display:none; }
+.hide-player.hidden-as-prop b {
+  position: static;
+  transform: none;
+  padding: 0;
+  background: transparent;
+  font-size: 10px;
+  color: #f5ddb5;
+}
+ .hide-player.hidden-as-prop .prop-visual {
+  display: block;
+  font-size: 39px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 2px rgba(0,0,0,.4));
+}
+
+@media (max-width: 700px) {
+  .hide-map { transform: scale(.72); }
+  .map-note { max-width: 300px; font-size: 7px; }
+  .hide-player { transform: scale(.9); }
+}
