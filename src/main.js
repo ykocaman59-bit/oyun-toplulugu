@@ -1,4 +1,3 @@
-
 import "./style.css";
 
 const app = document.getElementById("app");
@@ -924,19 +923,7 @@ function renderHideGame() {
         <div class="hide-viewport" id="hideViewport">
           <div class="hide-map" id="hideMap">
             <div class="map-title">BÜYÜK EV</div>
-
-            <div class="room room1"><span>SALON</span></div>
-            <div class="room room2"><span>KÜTÜPHANE</span></div>
-            <div class="room room3"><span>YATAK ODASI</span></div>
-            <div class="room room4"><span>MUTFAK</span></div>
-            <div class="room room5"><span>OTURMA ODASI</span></div>
-            <div class="room room6"><span>DEPO</span></div>
-            <div class="room room7"><span>HOL</span></div>
-            <div class="room room8"><span>BAHÇE</span></div>
-
-            <div class="corridor c1"></div>
-            <div class="corridor c2"></div>
-            <div class="corridor c3"></div>
+            <div class="map-note">3D KONAK • SALON • KÜTÜPHANE • YATAK ODALARI • MUTFAK • BAHÇE</div>
 
             ${props.map(prop => `
               <button
@@ -956,8 +943,11 @@ function renderHideGame() {
                 id="hide-player-${p.id}"
                 style="left:${hideState.positions[p.id].x}px;top:${hideState.positions[p.id].y}px"
               >
-                <span>${p.emoji}</span>
-                <b>${p.id}</b>
+                <span class="character-shadow"></span>
+                <span class="character-head"></span>
+                <span class="character-body"></span>
+                <span class="character-face"></span>
+                <b>${escapeHtml(p.name)}</b>
               </div>
             `).join("")}
           </div>
@@ -1096,11 +1086,17 @@ function updatePlayerVisual(id) {
   const transform = hideState.transformed[id];
   if (transform) {
     el.classList.add("hidden-as-prop");
-    el.innerHTML = `<span>${transform.emoji}</span><b>${transform.type}</b>`;
+    el.innerHTML = `<span class="prop-visual">${transform.emoji}</span><b>${escapeHtml(transform.type)}</b>`;
   } else {
     el.classList.remove("hidden-as-prop");
     const p = players.find(x => x.id === id);
-    el.innerHTML = `<span>${p.emoji}</span><b>${id}</b>`;
+    el.innerHTML = `
+      <span class="character-shadow"></span>
+      <span class="character-head"></span>
+      <span class="character-body"></span>
+      <span class="character-face"></span>
+      <b>${escapeHtml(p.name)}</b>
+    `;
   }
 
   updateHideHud();
@@ -1434,3 +1430,4 @@ window.addEventListener("keydown", event => {
 });
 
 showSplash();
+    
