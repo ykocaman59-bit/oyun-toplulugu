@@ -648,8 +648,7 @@ function finishDrawing() {
   showRoundResult(drawer, drawerPoints, guessedPoints);
 }
 
-function showRoundResult(drawer, drawerPoints, guessedPoints) {
-  const image = canvas && hasDrawn ? canvas.toDataURL("image/png") : "";
+function showRoundResult(drawer, drawerPoints, guessedPoints) {const image = canvas && hasDrawn ? canvas.toDataURL("image/png") : "";
   const nextId = drawState.turn + 1 < 16 ? nextDrawerId(drawer.id) : null;
 
   app.innerHTML = `
@@ -1058,8 +1057,7 @@ function getHumanPosition() {
   return hideState.positions[1];
 }
 
-function moveHuman(dir) {
-  if (!hideState || hideState.caught.includes(1)) return;
+function moveHuman(dir) {if (!hideState || hideState.caught.includes(1)) return;
 
   const pos = getHumanPosition();
   const speed = 65;
